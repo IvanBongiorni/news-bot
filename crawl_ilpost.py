@@ -1,10 +1,14 @@
 """
 News scrapers
 """
+import os
 import yaml
+
 import requests
 import urllib3
 from bs4 import BeautifulSoup
+
+import pandas as pd
 
 
 def crawls_section(url):
@@ -15,7 +19,6 @@ def crawls_section(url):
     import urllib3
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
     from bs4 import BeautifulSoup
-
     import pandas as pd
 
     # Get page data
@@ -41,7 +44,9 @@ def main():
     """
     Wrapper of the crawling pipeline
     """
+    import os
     import yaml
+    import pandas as pd
 
     # Get the list of sections you want to crawl
     params = yaml.load(open(os.getcwd() + '/config.yaml'), yaml.Loader)
@@ -57,7 +62,7 @@ def main():
 
     # Substitute old .csv with new one, filter out
     df_new.to_csv(os.path.join(os.getcwd(), 'history', 'history_ilpost.csv'), index=False)
-    df_new = df_new[ ~df_new['urls'].isin(df_new['urls'])
+    df_new = df_new[ ~df_new['urls'].isin(df_new['urls']) ]
     df_new['source'] = 'Il Post'
 
     return df_new
