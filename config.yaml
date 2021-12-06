@@ -1,0 +1,9 @@
+sections_ilpost: [
+    'https://www.ilpost.it/italia/',
+    'https://www.ilpost.it/mondo/',
+    'https://www.ilpost.it/politica/',
+    'https://www.ilpost.it/economia/',
+    'https://www.ilpost.it/europa/',
+    'https://www.ilpost.it/internet/',
+    'https://www.ilpost.it/scienza/'
+]
